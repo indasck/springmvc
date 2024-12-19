@@ -1,0 +1,44 @@
+package com.mave.springMVCex_4.control;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mave.springMVCex_4.Entit.Student;
+import com.mave.springMVCex_4.serv.StuServiceImpl;
+
+@Controller
+public class StuController {
+	
+	private StuServiceImpl serviceImpl;
+
+	public StuController(StuServiceImpl serviceImpl) {
+		super();
+		this.serviceImpl = serviceImpl;
+	}
+	
+	
+	@GetMapping("/")
+    public ModelAndView stusave(Student stu) {
+		 boolean student= serviceImpl.saveStudent(stu);
+    	ModelAndView mav= new ModelAndView();
+    	mav.addObject("students",student);
+    	mav.setViewName("create");
+    	
+		return mav;
+    	
+    }
+	
+	@GetMapping("/getall")
+	public ModelAndView getallstu() {
+		  List<Student> stude  = serviceImpl.getallstu();
+		ModelAndView mav1= new ModelAndView();
+		mav1.addObject("studen", stude);
+		mav1.setViewName("getall");
+		  
+		return mav1;
+		
+	}
+}

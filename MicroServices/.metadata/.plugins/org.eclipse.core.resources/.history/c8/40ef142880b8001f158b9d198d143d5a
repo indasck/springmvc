@@ -1,0 +1,12 @@
+package com.microservice.MicroPrcatice.controll;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class mipraticeContorll {
+
+	public String getmicro() {
+		return "this is micropractice";
+		
+	}
+}

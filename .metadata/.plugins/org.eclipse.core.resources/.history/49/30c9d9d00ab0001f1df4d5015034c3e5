@@ -1,0 +1,28 @@
+package com.mave.springMVCex_2.contro;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.mave.springMVCex_2.regmodel.Registor;
+
+@Controller
+public class ControllMvc {
+
+	@GetMapping("/")
+	public String getregistor() {
+		return "registor";
+		
+	}
+	
+	public String loginregistor(Model model,Registor registor) {
+		if(registor.getName()!="user"|| registor.getEmail()!="email" || registor.getPassword()!="pass") {
+			
+			return "registor";
+		}else {
+		
+		return "login";
+		
+	}
+	}
+}

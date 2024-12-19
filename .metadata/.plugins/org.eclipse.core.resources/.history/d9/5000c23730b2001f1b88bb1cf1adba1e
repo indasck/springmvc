@@ -1,0 +1,9 @@
+<html>
+  <head>
+	 <title>this mvc</title>
+  </head>	
+  <body>
+	controller massage:<p th:text="{msg}">message</p>
+	
+  </body>
+</html>

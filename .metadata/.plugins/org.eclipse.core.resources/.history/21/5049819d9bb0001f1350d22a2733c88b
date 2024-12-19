@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>showdetails</title>
+	</head>
+	<body>
+		<form>
+			<p>
+				<strong>name:</strong>
+				<span th:field="*{name}"></span>
+				<strong>email:</strong>
+				<span th:field="*{email}"></span>
+				<strong>age:</strong>
+				<span th:field="*{age}"></span>
+			</p>
+		</form>
+	</body>
+</html>

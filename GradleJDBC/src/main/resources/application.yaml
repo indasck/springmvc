@@ -1,0 +1,13 @@
+spring:
+   application:
+          name: GradleJDBC
+
+
+   datasource:
+        url: "jdbc:mysql://localhost:3306/emps"
+        username: root
+        password: asck
+   jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true     

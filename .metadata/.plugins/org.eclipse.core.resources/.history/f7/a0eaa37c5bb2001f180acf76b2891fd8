@@ -1,0 +1,5 @@
+package com.mave.springMVCex_4.serv;
+
+public interface StuService {
+
+}

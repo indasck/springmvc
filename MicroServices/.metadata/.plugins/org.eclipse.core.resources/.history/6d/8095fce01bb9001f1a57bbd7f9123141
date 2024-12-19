@@ -1,0 +1,5 @@
+package com.microservice.ApiGateway.filter;
+
+public class CompundCls {
+
+}

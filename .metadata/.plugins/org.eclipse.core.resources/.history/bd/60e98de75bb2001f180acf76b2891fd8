@@ -1,0 +1,8 @@
+package com.mave.springMVCex_4.serv;
+
+import com.mave.springMVCex_4.Entit.Student;
+
+public interface StuService {
+
+	public boolean saveStudent(Student s);
+}

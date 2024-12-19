@@ -1,0 +1,5 @@
+package com.mave.springMVCex_pract.reposit;
+
+public interface productRepository jpaRepository<product,Integer> {
+
+}

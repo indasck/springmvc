@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;GradleAllEx-1/build.gradle.kts&apos; to &apos;build.gradle&apos;" description="Rename resource &apos;build.gradle.kts&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="build.gradle.kts" name="build.gradle" stamp="1731742410650" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;GradleAllEx-1/settings.gradle.kts&apos; to &apos;settings.gradle&apos;" description="Rename resource &apos;settings.gradle.kts&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="settings.gradle.kts" name="settings.gradle" stamp="1731753849893" updateReferences="true"/>
+</session>

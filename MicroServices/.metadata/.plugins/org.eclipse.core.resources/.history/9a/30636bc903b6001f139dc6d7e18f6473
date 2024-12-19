@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: MicroServiceGreet
+
+server:
+  port: 8025

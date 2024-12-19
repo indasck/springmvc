@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: eurekaservice
+server:
+  port: 8021

@@ -1,0 +1,5 @@
+package com.mave.RestAndSecurity.exceptandSecur;
+
+public class BikeNotFoundException {
+
+}

@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'war' // for building a WAR file
+    id 'org.gretty' version '3.0.6' // for running the servlet locally
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.servlet:javax.servlet-api:4.0.1' // Servlet API
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-core:9.0.80' // Embedded Tomcat
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.80' // JSP support (if needed)
+}
+
+gretty {
+    contextPath = '/' // Base URL for your app
+    servletContainer = 'tomcat9' // Using Tomcat 9
+}
+
+tasks.named('test') {
+    useJUnitPlatform()  // Use JUnit 5 for testing
+}
+
+war {
+    archiveFileName = 'simple.war'  // Optional: Name the WAR file
+}
+

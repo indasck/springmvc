@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes:
+        - id: ap-1
+          uri: lb://MICROPRCATICE
+          predicates:
+            - Path=/mpractice
+        - id: ap-2
+          uri: lb://MICROPRCATICEOPEN
+          predicates:
+            - Path=/mpraopen
+      eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+server:
+  port: 8034

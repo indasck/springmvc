@@ -1,0 +1,5 @@
+package com.mave.springMVCex_pract.model.entit;
+
+public class productEntit {
+
+}

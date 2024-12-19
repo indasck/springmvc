@@ -1,0 +1,5 @@
+package com.microservice.MicroServiceGreet.feign;
+
+public class feignClient {
+
+}

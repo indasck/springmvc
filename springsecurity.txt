@@ -1,0 +1,86 @@
+1. Create the Entity class, 
+	
+@Entity
+@Table(name= "customer")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Customer {
+	  @Id
+	    @GeneratedValue(strategy= GenerationType.AUTO)
+	     private int id;
+	    private String email;
+	    private String pwd;
+	    private String role;
+}
+
+
+2. Create the REpository 
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer,Long> {
+    List<Customer> findByEmail(String email);
+}
+
+
+3. Create the RegisterController to register the USEr
+
+@RestController
+public class RegisterController {
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	
+	 @PostMapping("/register")
+	    public ResponseEntity<String> registerUser(@RequestBody Customer customer) {
+	        Customer savedCustomer = null;
+	        ResponseEntity<String> response = null;
+	        try {
+	            
+	        	String hashPassword = passwordEncoder.encode(customer.getPwd());
+	        	customer.setPwd(hashPassword);
+	        			
+	        	savedCustomer = customerRepository.save(customer);
+	            if (savedCustomer.getId() > 0) {
+	                response = ResponseEntity
+	                        .status(HttpStatus.CREATED)
+	                        .body("Given user details are successfully registered");
+	            }
+	        } catch (Exception ex) {
+	            response = ResponseEntity
+	                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+	                    .body("An exception occured due to " + ex.getMessage());
+	        }
+	        return response;
+	    }
+	 
+}
+
+
+@Configuration
+public class AppSecurityConfig {
+
+	@Bean
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception
+	{
+		http.csrf().disable()
+		.authorizeHttpRequests(request->
+				request.requestMatchers("/myAccount","/myBalance","/myCards","/myLoans")
+				   .authenticated()
+				   .requestMatchers("/contact","/notices","/register","/h2-console/**")
+				   .permitAll())
+				   .formLogin(Customizer.withDefaults())
+				   .httpBasic(Customizer.withDefaults())
+				   .headers().frameOptions().disable(); 
+		return http.build();	 	 
+	}
+	
+	
+	@Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }	
+}

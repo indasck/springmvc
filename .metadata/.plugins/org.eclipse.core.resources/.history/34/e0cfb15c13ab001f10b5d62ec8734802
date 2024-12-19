@@ -1,0 +1,18 @@
+package com.mave.springMvcCURD.control;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mave.springMvcCURD.Enti.proEntit;
+
+@RestController
+@RequestMapping("/product")
+public class proController {
+	
+	public proEntit getallpro() {
+		
+		return null;
+		
+	}
+
+}

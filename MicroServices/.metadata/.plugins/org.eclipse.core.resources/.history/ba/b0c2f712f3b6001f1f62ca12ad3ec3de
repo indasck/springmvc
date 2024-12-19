@@ -1,0 +1,14 @@
+package com.microservice.MicroService.control;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class microControler {
+
+	@GetMapping("/micro")
+	public String getcontrol() {
+		
+		return "get the contoller";
+	}
+}

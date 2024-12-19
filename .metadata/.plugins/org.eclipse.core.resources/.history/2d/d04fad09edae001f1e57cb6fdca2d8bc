@@ -1,0 +1,32 @@
+package com.mave.springMVCex_1.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mave.springMVCex_1.enti.studententi;
+import com.mave.springMVCex_1.reposit.stuRepository;
+
+@Service
+public class stuSeviceImpl implements stuService{
+
+	@Autowired
+	private stuRepository stuRepository;
+	
+	@Override
+	public boolean savestu(studententi studententi) {
+		if (studententi.getSId() != null) {
+	        // Update existing entity
+	        studententi existingStudent = stuRepository.findById(studententi.getSid())
+	                .orElseThrow(() -> new RuntimeException("Student not found with ID: " + student.getSid()));
+	        existingStudent.setSname(studententi.getSname());
+	        existingStudent.setEmail(studententi.getEmail());
+	        existingStudent.setPhno(studententi.getPhno());
+	        stuRepository.save(existingStudent);
+	    } else {
+	        // Save new entity
+	        stuRepository.save(studententi);
+	    }
+	return "true" != null;
+	}
+
+}

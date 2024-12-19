@@ -1,0 +1,13 @@
+package com.microservice.MicroServiceGreet.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "microservice", url = "http://MICROSERVICE")
+public interface FeignClient {
+    @GetMapping("/microgreet")
+    String getclien();
+}
+		
+	
+}

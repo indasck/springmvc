@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ApiGateway-1
+  cloud:
+    gateway:
+      routes:
+        - id: ap-1
+          uri: lb://MICROPRCATICE
+          predicates:
+            - Path=/mpractice
+        - id: ap-2
+          uri: lb://MICROPRCATICEOPEN
+          predicates:
+            - Path=/mpraopen

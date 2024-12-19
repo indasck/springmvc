@@ -1,0 +1,27 @@
+package com.mave.springMVCex_1.control;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.mave.springMVCex_1.enti.studententi;
+import com.mave.springMVCex_1.service.stuService;
+
+@Controller
+public class stuController {
+
+	@Autowired
+	private stuService stuService;
+	
+	@GetMapping("/")
+	public String getid(Model model) {
+		   studententi studententiobj= new studententi();
+		   model.addAttribute("studententi",studententiobj);
+		   studententiobj.setSname("lalitha");
+		return "stu";
+		
+	}
+	
+	
+}

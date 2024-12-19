@@ -1,0 +1,5 @@
+package com.mave.springMVCex_pract.model;
+
+public class productModel {
+
+}

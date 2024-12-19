@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: MicroPrcaticeOpen
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:8022 # Spring Boot Admin server URL
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # Eureka server URL
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' # Exposes all actuator endpoints

@@ -1,0 +1,97 @@
+Excepiton Handling: 
+1. Add the Validation annotations 
+public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@NotBlank(message = "Product name is required")
+	private String name;
+	
+	@NotBlank(message = "Product name is required")
+	private String brand; 
+	
+	@NotBlank(message = "Product madein is required")
+	private String madein;
+	
+	@NotNull(message = "Product price is required")
+        @Min(value = 0, message = "Product price must be greater than or equal to 0")
+	private double price;
+}
+
+ 2. Run the code check the MethodArgumentNotvalildExcpetion 
+
+ 3. Handle the Excpetion 
+@ControllerAdvice
+public class ProductExceptionHandling {
+	
+	    @ExceptionHandler(MethodArgumentNotValidException.class)
+	    public String handleValidationExceptions(MethodArgumentNotValidException ex, Model model) {
+	        StringBuilder errorMessage = new StringBuilder();
+
+	ex.getBindingResult()
+	  .getAllErrors()
+	  .forEach((error) -> {
+		String fieldName = ((FieldError) error).getField();
+		String message = error.getDefaultMessage();
+		errorMessage.append(fieldName).append(": ").append(message).append("\n");
+	});
+	        
+	        model.addAttribute("errorMessage", errorMessage.toString());
+	        model.addAttribute("product", ex.getBindingResult().getTarget()); // Add the product object back to the model
+	        return "new-product";
+	    }
+}
+
+ 4.   In Controller class, @Valid , BindingREsult 
+ 		public String saveProduct(@Valid @ModelAttribute Product product,BindingResult bindingResult, RedirectAttributes redirectAttributes,Model model)
+	{
+		
+		if(bindingResult.hasErrors()) {
+	        // If validation fails, return to the form page with validation errors
+	        model.addAttribute("product", product); // Add the product back to the model
+	        return "new-product"; // Return to the form page
+	    }
+
+
+ 5. print the errors in new-product.html 
+	 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Product</title>
+    <style type="text/css">
+    	.error-message {
+ 		   color: red;
+		}
+    
+    </style>
+    
+</head>
+
+<body>  
+    <div align="center">
+    <h1>Create New Product</h1>
+
+    <form action="#" th:action="@{/products/saveproduct}" th:object="${product}" method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Product Name:</td>
+                <td><input type="text" th:field="*{proName}" /></td>
+                <td> <span th:if="${#fields.hasErrors('proName')}" th:errors="*{proName}" class="error-message "></span></td>
+            </tr>
+            
+
+
+Singleton classes 
+	Only one instance is created, that will sahred for all request, 
+		ex: Controller, Service, Repository 
+	
+	The Sinlge classes the spring IOC container creates the object when the continaer starts.
+
+Prototype classes:
+	Every request new object will be created.
+		ex: model 
+	The prototype objects are created when client request, because every request we need to create the Selerate objects. 
+
+Note: 
+	When we start the contianer the container identify the singleton classes, & container create the objects & inject the object using Autiring making the Application bridge ready. 

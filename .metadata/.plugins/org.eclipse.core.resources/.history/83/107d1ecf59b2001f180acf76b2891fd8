@@ -1,0 +1,5 @@
+package com.mave.springMVCex_4.Entit;
+
+public class Student {
+
+}

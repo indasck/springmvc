@@ -1,0 +1,13 @@
+package com.microservice.MicroServiceGreet;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroServiceGreetApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroServiceGreetApplication.class, args);
+	}
+
+}

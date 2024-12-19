@@ -1,0 +1,13 @@
+package com.microservice.MicroPrcaticeOpen;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroPrcaticeOpenApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroPrcaticeOpenApplication.class, args);
+	}
+
+}

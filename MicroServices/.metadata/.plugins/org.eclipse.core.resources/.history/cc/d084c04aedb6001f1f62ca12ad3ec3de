@@ -1,0 +1,13 @@
+package com.microservice.MicroServiceWelcome;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroServiceWelcomeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroServiceWelcomeApplication.class, args);
+	}
+
+}
