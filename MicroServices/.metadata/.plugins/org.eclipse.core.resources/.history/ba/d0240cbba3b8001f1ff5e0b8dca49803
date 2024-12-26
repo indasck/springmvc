@@ -1,5 +1,0 @@
-package com.microservice.MicroPrcaticeOpen.feign;
-
-public class OpenFeign {
-
-}

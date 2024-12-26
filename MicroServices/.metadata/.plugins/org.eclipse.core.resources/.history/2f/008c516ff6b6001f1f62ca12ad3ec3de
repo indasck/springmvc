@@ -1,9 +1,0 @@
-package com.microservice.MicroServiceWelcome.fegin;
-
-import org.springframework.cloud.openfeign.FeignClient;
-
-@FeignClient(name="MICROSERVICE")
-public interface welcomeFeginclient {
-
-	public String getmicro();
-}

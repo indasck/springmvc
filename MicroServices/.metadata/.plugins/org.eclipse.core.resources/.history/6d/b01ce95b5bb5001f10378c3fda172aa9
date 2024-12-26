@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: MicroService
-server:
-  port: 8024

@@ -1,5 +1,0 @@
-package com.microservice.ApiGateway.client;
-
-public class clientfilter {
-
-}

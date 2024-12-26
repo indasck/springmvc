@@ -1,9 +1,0 @@
-package com.microservice.MicroPrcaticeOpen.feign;
-
-import org.springframework.web.bind.annotation.GetMapping;
-
-public interface OpenFeign {
-
-	@GetMapping("")
-	public String getmicropractice();
-}
